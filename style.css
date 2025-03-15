@@ -6,7 +6,7 @@
 }
 
 body {
-    background: url("/waitlist/images/backgroundreal.jpg") no-repeat center center fixed;
+    background: url("/images/backgroundreal.jpg") no-repeat center center fixed;
     color: #333;
     line-height: 1.6;
     background-size: cover;
@@ -66,7 +66,7 @@ body {
 /* Animation */
 .typewriter-animation {
     animation:
-        typewriter 5s steps(50) 1s 1 normal both,
+        typewriter 10s steps(50) 1s 100 normal both,
         blinkingCursor 500ms steps(50) infinite normal;
 }
 
@@ -76,7 +76,7 @@ body {
     }
 
     to {
-        width: 100%;
+        width: 80%;
     }
 }
 
