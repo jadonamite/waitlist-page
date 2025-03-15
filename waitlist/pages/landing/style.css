@@ -1,0 +1,239 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: url("/waitlist/images/backgroundreal.jpg") no-repeat center center fixed;
+    color: #333;
+    line-height: 1.6;
+    background-size: cover;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header {
+    padding: 30px 0;
+    text-align: center;
+}
+
+.logo {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 10px;
+
+}
+
+.logo-image {
+    width: 70px;
+    height: 70px;
+}
+
+.hero {
+    padding: 10px 0;
+    text-align: center;
+
+
+}
+/* TYPEWRITER EFFECT */
+/* Google Fonts */
+@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
+
+/* Cursor */
+.cursor {
+    position: relative;
+    width: 24em;
+    margin: 0 auto;
+    border-right: 2px solid rgba(255, 255, 255, .75);
+    font-size: 30px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    transform: translateY(-10%);
+}
+
+/* Animation */
+.typewriter-animation {
+    animation:
+        typewriter 5s steps(50) 1s 1 normal both,
+        blinkingCursor 500ms steps(50) infinite normal;
+}
+
+@keyframes typewriter {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blinkingCursor {
+    from {
+        border-right-color: rgba(255, 255, 255, .75);
+    }
+
+    to {
+        border-right-color: transparent;
+    }
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #B2B0C4
+
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #f9fcff9e;
+    max-width: 700px;
+    margin: 0 auto 40px;
+}
+
+.waitlist-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.email-input {
+    display: flex;
+    gap: 10px;
+}
+
+input[type="email"] {
+    flex: 1;
+    padding: 15px 20px;
+    border: 2px solid #e1e4e8;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+input[type="email"]:disabled {
+    background-color: #f0f0f0;
+    cursor: not-allowed;
+}
+
+input[type="email"]:focus {
+    border-color: #1a73e8;
+}
+
+.submit-btn {
+    padding: 15px 30px;
+    background-color: #999;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: not-allowed;
+    transition: background-color 0.3s;
+}
+
+.submit-btn.active {
+    background: linear-gradient(90deg, rgba(99, 72, 234, 1) 0%, rgba(49, 146, 154, 1) 100%);
+    cursor: pointer;
+}
+
+.submit-btn.active:hover {
+    background-color: #0d62cb;
+}
+
+.twitter-btn {
+    padding: 15px 30px;
+    background-color: #000;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background-color 0.3s;
+}
+
+.twitter-btn:hover {
+    background-color: #333;
+}
+
+.twitter-btn.followed {
+    background-color: #17bf63;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    margin-bottom: 5px;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #ddd;
+    color: #666;
+    font-weight: 600;
+}
+
+.step.active .step-number {
+    background-color: #1a73e8;
+    color: white;
+}
+
+.step.completed .step-number {
+    background-color: #17bf63;
+    color: white;
+}
+
+.footer {
+    text-align: center;
+    padding: 30px 0;
+    color: #777;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .email-input {
+        flex-direction: column;
+    }
+
+    .waitlist-form {
+        padding: 0 20px;
+    }
+}

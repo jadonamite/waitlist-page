@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Join Our Waitlist</title>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <img src="/waitlist/images/logo.jpg" alt="" class="logo-image">
+                <h3 class="">Range</h3>
+            </div>
+        </header>
+
+        <section class="hero">
+            <h1 class="cursor typewriter-animation">Something Exciting Is Coming</h1>
+            <p>Be the first to know when we launch. Join our exclusive waitlist and get early access to our product.</p>
+
+            <div class="waitlist-form">
+                <div class="step active" id="step1">
+                    <div class="step-number">1</div>
+                    <div>Follow us on X to unlock the waitlist</div>
+                </div>
+
+                <button id="twitterBtn" class="twitter-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                            fill="white" />
+                    </svg>
+                    Follow us on X
+                </button>
+
+                <div class="step" id="step2">
+                    <div class="step-number">2</div>
+                    <div>Enter your email to join the waitlist</div>
+                </div>
+
+                <div class="email-input">
+                    <input type="email" id="emailInput" placeholder="Follow X first to enable this field" disabled
+                        required>
+                    <button type="submit" id="submitBtn" class="submit-btn" disabled>Join Waitlist</button>
+                </div>
+
+                <div class="message" id="message">Please follow us on X first</div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>&copy; 2025 Product Launch. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        const twitterBtn = document.getElementById('twitterBtn');
+        const submitBtn = document.getElementById('submitBtn');
+        const emailInput = document.getElementById('emailInput');
+        const message = document.getElementById('message');
+        const step1 = document.getElementById('step1');
+        const step2 = document.getElementById('step2');
+
+        // Clear any existing localStorage data when the page loads
+        window.onload = function () {
+            localStorage.removeItem('twitterFollowed');
+        }
+
+        // Function to handle Twitter follow action
+        twitterBtn.addEventListener('click', function () {
+            // Open Twitter in a new window
+            window.open('https://x.com/rangewallet_io', '_blank');
+
+            // Set a timeout to simulate the follow verification
+            setTimeout(() => {
+                // Mark Twitter button as followed
+                twitterBtn.classList.add('followed');
+                twitterBtn.textContent = 'Followed ✓';
+
+                // Enable email input
+                emailInput.disabled = false;
+                emailInput.placeholder = "Enter your email address";
+                emailInput.focus();
+
+                // Update steps
+                step1.classList.remove('active');
+                step1.classList.add('completed');
+                step2.classList.add('active');
+
+                // Update message
+                message.textContent = "Now enter your email to join the waitlist";
+                message.style.color = "#17bf63";
+            }, 1000);
+        });
+
+        // Enable submit button when email is entered
+        emailInput.addEventListener('input', function () {
+            if (emailInput.value.trim() !== '' && emailInput.validity.valid) {
+                submitBtn.classList.add('active');
+                submitBtn.disabled = false;
+            } else {
+                submitBtn.classList.remove('active');
+                submitBtn.disabled = true;
+            }
+        });
+
+        // Submit form handler
+        submitBtn.addEventListener('click', function (e) {
+            if (emailInput.disabled) {
+                e.preventDefault();
+                message.textContent = "Please follow us on X before joining the waitlist.";
+                message.style.color = "#e91e63";
+                return false;
+            }
+
+            if (!emailInput.value || !emailInput.validity.valid) {
+                e.preventDefault();
+                message.textContent = "Please enter a valid email address.";
+                message.style.color = "#e91e63";
+                return false;
+            }
+
+            // Form submission would go here
+            message.textContent = "Thanks! You've been added to our waitlist.";
+            message.style.color = "#4CAF50";
+
+            // In a real implementation, you would submit the form to your backend
+            // form.submit();
+
+            // Optionally, reset the form after submission
+            setTimeout(() => {
+                // Reset form to initial state
+                window.location.reload();
+            }, 3000);
+        });
+    </script>
+</body>
+
+</html>
