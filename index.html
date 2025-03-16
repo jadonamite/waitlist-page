@@ -5,252 +5,257 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join Our Waitlist</title>
+
+    <!-- SUPABASE -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 </head>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+        background-image: no-repeat center center fixed;
+        color: #333;
+        line-height: 1.6;
+        background-size: cover;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .header {
+        padding: 30px 0;
+        text-align: center;
+    }
+
+    .logo {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        gap: 10px;
+
+    }
+
+    .logo-image {
+        width: 70px;
+        height: 70px;
+    }
+
+    .hero {
+        padding: 10px 0;
+        text-align: center;
+
+
+    }
+
+    /* TYPEWRITER EFFECT */
+    /* Google Fonts */
+    @import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
+
+    /* Cursor */
+    .cursor {
+        position: relative;
+        width: 24em;
+        margin: 0 auto;
+        border-right: 2px solid rgba(255, 255, 255, .75);
+        font-size: 30px;
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        transform: translateY(-10%);
+    }
+
+    /* Animation */
+    .typewriter-animation {
+        animation:
+            typewriter 5s steps(50) 1s 100 normal both,
+            blinkingCursor 500ms steps(50) infinite normal;
+    }
+
+    @keyframes typewriter {
+        from {
+            width: 0;
         }
 
-        body {
-            background-image: no-repeat center center fixed;
-            color: #333;
-            line-height: 1.6;
-            background-size: cover;
+        to {
+            width: 80%;
+        }
+    }
+
+    @keyframes blinkingCursor {
+        from {
+            border-right-color: rgba(255, 255, 255, .75);
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        to {
+            border-right-color: transparent;
         }
+    }
 
-        .header {
-            padding: 30px 0;
-            text-align: center;
-        }
+    .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        color: #B2B0C4
+    }
 
-        .logo {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: row;
-            gap: 10px;
+    .hero p {
+        font-size: 1.2rem;
+        color: #f9fcff9e;
+        max-width: 700px;
+        margin: 0 auto 40px;
+    }
 
-        }
+    .waitlist-form {
+        max-width: 600px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
 
-        .logo-image {
-            width: 70px;
-            height: 70px;
-        }
+    .email-input {
+        display: flex;
+        gap: 10px;
+    }
 
-        .hero {
-            padding: 10px 0;
-            text-align: center;
+    input[type="email"] {
+        flex: 1;
+        padding: 15px 20px;
+        border: 2px solid #e1e4e8;
+        border-radius: 8px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.3s, background-color 0.3s;
+    }
 
+    input[type="email"]:disabled {
+        background-color: #f0f0f0;
+        cursor: not-allowed;
+    }
 
-        }
+    input[type="email"]:focus {
+        border-color: #1a73e8;
+    }
 
-        /* TYPEWRITER EFFECT */
-        /* Google Fonts */
-        @import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
+    .submit-btn {
+        padding: 15px 30px;
+        background-color: #999;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: not-allowed;
+        transition: background-color 0.3s;
+    }
 
-        /* Cursor */
-        .cursor {
-            position: relative;
-            width: 24em;
-            margin: 0 auto;
-            border-right: 2px solid rgba(255, 255, 255, .75);
-            font-size: 30px;
-            text-align: center;
-            white-space: nowrap;
-            overflow: hidden;
-            transform: translateY(-10%);
-        }
+    .submit-btn.active {
+        background: linear-gradient(90deg, rgba(99, 72, 234, 1) 0%, rgba(49, 146, 154, 1) 100%);
+        cursor: pointer;
+    }
 
-        /* Animation */
-        .typewriter-animation {
-            animation:
-                typewriter 5s steps(50) 1s 100 normal both,
-                blinkingCursor 500ms steps(50) infinite normal;
-        }
+    .submit-btn.active:hover {
+        background-color: #0d62cb;
+    }
 
-        @keyframes typewriter {
-            from {
-                width: 0;
-            }
+    .twitter-btn {
+        padding: 15px 30px;
+        background-color: #000;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        transition: background-color 0.3s;
+    }
 
-            to {
-                width: 80%;
-            }
-        }
+    .twitter-btn:hover {
+        background-color: #333;
+    }
 
-        @keyframes blinkingCursor {
-            from {
-                border-right-color: rgba(255, 255, 255, .75);
-            }
+    .twitter-btn.followed {
+        background-color: #17bf63;
+    }
 
-            to {
-                border-right-color: transparent;
-            }
-        }
+    .step {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 8px;
+        margin-bottom: 5px;
+        color: #666;
+        font-size: 0.9rem;
+    }
 
+    .step-number {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background-color: #ddd;
+        color: #666;
+        font-weight: 600;
+    }
+
+    .step.active .step-number {
+        background-color: #1a73e8;
+        color: white;
+    }
+
+    .step.completed .step-number {
+        background-color: #17bf63;
+        color: white;
+    }
+
+    .footer {
+        text-align: center;
+        padding: 30px 0;
+        color: #777;
+        font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: #B2B0C4
+            font-size: 2.2rem;
         }
 
         .hero p {
-            font-size: 1.2rem;
-            color: #f9fcff9e;
-            max-width: 700px;
-            margin: 0 auto 40px;
-        }
-
-        .waitlist-form {
-            max-width: 600px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+            font-size: 1rem;
         }
 
         .email-input {
-            display: flex;
-            gap: 10px;
+            flex-direction: column;
         }
 
-        input[type="email"] {
-            flex: 1;
-            padding: 15px 20px;
-            border: 2px solid #e1e4e8;
-            border-radius: 8px;
-            font-size: 1rem;
-            outline: none;
-            transition: border-color 0.3s, background-color 0.3s;
+        .waitlist-form {
+            padding: 0 20px;
         }
-
-        input[type="email"]:disabled {
-            background-color: #f0f0f0;
-            cursor: not-allowed;
-        }
-
-        input[type="email"]:focus {
-            border-color: #1a73e8;
-        }
-
-        .submit-btn {
-            padding: 15px 30px;
-            background-color: #999;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: not-allowed;
-            transition: background-color 0.3s;
-        }
-
-        .submit-btn.active {
-            background: linear-gradient(90deg, rgba(99, 72, 234, 1) 0%, rgba(49, 146, 154, 1) 100%);
-            cursor: pointer;
-        }
-
-        .submit-btn.active:hover {
-            background-color: #0d62cb;
-        }
-
-        .twitter-btn {
-            padding: 15px 30px;
-            background-color: #000;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            transition: background-color 0.3s;
-        }
-
-        .twitter-btn:hover {
-            background-color: #333;
-        }
-
-        .twitter-btn.followed {
-            background-color: #17bf63;
-        }
-
-        .step {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            gap: 8px;
-            margin-bottom: 5px;
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        .step-number {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            background-color: #ddd;
-            color: #666;
-            font-weight: 600;
-        }
-
-        .step.active .step-number {
-            background-color: #1a73e8;
-            color: white;
-        }
-
-        .step.completed .step-number {
-            background-color: #17bf63;
-            color: white;
-        }
-
-        .footer {
-            text-align: center;
-            padding: 30px 0;
-            color: #777;
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .email-input {
-                flex-direction: column;
-            }
-
-            .waitlist-form {
-                padding: 0 20px;
-            }
-        }
-    </style>
+    }
+</style>
 
 <body>
-    <body style="background-image: url(./backgroundreal.jpg);"
-    <div class="container">
+
+    <body style="background-image: url(./backgroundreal.jpg);" <div class="container">
         <header class="header">
             <div class="logo">
                 <img src="./logo.jpg" alt="logo" class="logo-image">
@@ -295,89 +300,125 @@
         <footer class="footer">
             <p>&copy; 2025 Product Launch. All rights reserved.</p>
         </footer>
-    </div>
+        </div>
 
-    <script>
-        const twitterBtn = document.getElementById('twitterBtn');
-        const submitBtn = document.getElementById('submitBtn');
-        const emailInput = document.getElementById('emailInput');
-        const message = document.getElementById('message');
-        const step1 = document.getElementById('step1');
-        const step2 = document.getElementById('step2');
+        <script>
+            const twitterBtn = document.getElementById('twitterBtn');
+            const submitBtn = document.getElementById('submitBtn');
+            const emailInput = document.getElementById('emailInput');
+            const message = document.getElementById('message');
+            const step1 = document.getElementById('step1');
+            const step2 = document.getElementById('step2');
 
-        // Clear any existing localStorage data when the page loads
-        window.onload = function () {
-            localStorage.removeItem('twitterFollowed');
-        }
-
-        // Function to handle Twitter follow action
-        twitterBtn.addEventListener('click', function () {
-            // Open Twitter in a new window
-            window.open('https://x.com/rangewallet_io', '_blank');
-
-            // Set a timeout to simulate the follow verification
-            setTimeout(() => {
-                // Mark Twitter button as followed
-                twitterBtn.classList.add('followed');
-                twitterBtn.textContent = 'Followed ✓';
-
-                // Enable email input
-                emailInput.disabled = false;
-                emailInput.placeholder = "Enter your email address";
-                emailInput.focus();
-
-                // Update steps
-                step1.classList.remove('active');
-                step1.classList.add('completed');
-                step2.classList.add('active');
-
-                // Update message
-                message.textContent = "Now enter your email to join the waitlist";
-                message.style.color = "#17bf63";
-            }, 1000);
-        });
-
-        // Enable submit button when email is entered
-        emailInput.addEventListener('input', function () {
-            if (emailInput.value.trim() !== '' && emailInput.validity.valid) {
-                submitBtn.classList.add('active');
-                submitBtn.disabled = false;
-            } else {
-                submitBtn.classList.remove('active');
-                submitBtn.disabled = true;
+            // Clear any existing localStorage data when the page loads
+            window.onload = function () {
+                localStorage.removeItem('twitterFollowed');
             }
-        });
 
-        // Submit form handler
-        submitBtn.addEventListener('click', function (e) {
-            if (emailInput.disabled) {
+            // Function to handle Twitter follow action
+            twitterBtn.addEventListener('click', function () {
+                // Open Twitter in a new window
+                window.open('https://x.com/rangewallet_io', '_blank');
+
+                // Set a timeout to simulate the follow verification
+                setTimeout(() => {
+                    // Mark Twitter button as followed
+                    twitterBtn.classList.add('followed');
+                    twitterBtn.textContent = 'Followed ✓';
+
+                    // Enable email input
+                    emailInput.disabled = false;
+                    emailInput.placeholder = "Enter your email address";
+                    emailInput.focus();
+
+                    // Update steps
+                    step1.classList.remove('active');
+                    step1.classList.add('completed');
+                    step2.classList.add('active');
+
+                    // Update message
+                    message.textContent = "Now enter your email to join the waitlist";
+                    message.style.color = "#17bf63";
+                }, 1000);
+            });
+
+            // Enable submit button when email is entered
+            emailInput.addEventListener('input', function () {
+                if (emailInput.value.trim() !== '' && emailInput.validity.valid) {
+                    submitBtn.classList.add('active');
+                    submitBtn.disabled = false;
+                } else {
+                    submitBtn.classList.remove('active');
+                    submitBtn.disabled = true;
+                }
+            });
+
+            // Submit form handler
+            submitBtn.addEventListener('click', function (e) {
+                if (emailInput.disabled) {
+                    e.preventDefault();
+                    message.textContent = "Please follow us on X before joining the waitlist.";
+                    message.style.color = "#e91e63";
+                    return false;
+                }
+
+                if (!emailInput.value || !emailInput.validity.valid) {
+                    e.preventDefault();
+                    message.textContent = "Please enter a valid email address.";
+                    message.style.color = "#e91e63";
+                    return false;
+                }
+
+                // Form submission would go here
+                message.textContent = "Thanks! You've been added to our waitlist.";
+                message.style.color = "#4CAF50";
+
+                // In a real implementation, you would submit the form to your backend
+                // form.submit();
+
+                // Optionally, reset the form after submission
+                setTimeout(() => {
+                    // Reset form to initial state
+                    window.location.reload();
+                }, 3000);
+            });
+        </script>
+
+        <script>
+            // SUPABASE SDK FOR BACKEND
+            const supabaseUrl = 'https://utppiaqaeymfepjuloxr.supabase.co';
+            const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV0cHBpYXFhZXltZmVwanVsb3hyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDIwNzg5NzYsImV4cCI6MjA1NzY1NDk3Nn0.LL665GI_u03aM5aBEirTtBTsNoC8zm2MyqYtbSMiywQ';
+            const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
+        </script>
+
+        <script>
+
+            // Handle form submission and store data in Supabase
+
+            document.getElementById('waitlistForm').addEventListener('submit', async function (e) {
                 e.preventDefault();
-                message.textContent = "Please follow us on X before joining the waitlist.";
-                message.style.color = "#e91e63";
-                return false;
-            }
 
-            if (!emailInput.value || !emailInput.validity.valid) {
-                e.preventDefault();
-                message.textContent = "Please enter a valid email address.";
-                message.style.color = "#e91e63";
-                return false;
-            }
+                const email = document.getElementById('emailField').value;
 
-            // Form submission would go here
-            message.textContent = "Thanks! You've been added to our waitlist.";
-            message.style.color = "#4CAF50";
+                try {
+                    const { data, error } = await supabase
+                        .from('waitlist')
+                        .insert([{ email: email, signed_up_at: new Date() }]);
 
-            // In a real implementation, you would submit the form to your backend
-            // form.submit();
+                    if (error) throw error;
 
-            // Optionally, reset the form after submission
-            setTimeout(() => {
-                // Reset form to initial state
-                window.location.reload();
-            }, 3000);
-        });
-    </script>
+                    alert('Thank you for joining our waitlist!');
+                    document.getElementById('waitlistForm').reset();
+                } catch (error) {
+                    alert('Error adding to waitlist: ' + error.message);
+                }
+            });
+        </script>
+
+
+
+    </body>
 </body>
- </body>
+
 </html>
