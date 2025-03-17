@@ -68,7 +68,7 @@
         width: 24em;
         margin: 0 auto;
         border-right: 2px solid rgba(255, 255, 255, .75);
-        font-size: 30px;
+        font-size: 10px;
         text-align: center;
         white-space: nowrap;
         overflow: hidden;
@@ -104,15 +104,15 @@
         }
     }
 
-    .hero h1 {
-        font-size: 3rem;
+    .hero h2 {
+        font-size: 25px;
         margin-bottom: 20px;
-        color: #B2B0C4
+        color: #ffffff
     }
 
     .hero p {
         font-size: 1.2rem;
-        color: #fff9f99e;
+        color: #b2a4bbc1;
         max-width: 700px;
         margin: 0 auto 40px;
     }
@@ -233,8 +233,8 @@
         font-size: 0.9rem;
     }
 
-    @media (max-width: 768px) {
-        .hero h1 {
+    @media (max-width: 601px) {
+        .hero h2 {
             font-size: 2.2rem;
         }
 
@@ -249,12 +249,95 @@
         .waitlist-form {
             padding: 0 20px;
         }
+
+        .body{
+            background-image: url(./backgroundreal.jpg);
+            background-size:cover;
+            background-repeat: no-repeat;
+        }
+
+
+        @media (max-width: 768px) {
+        .hero h2 {
+            font-size: 2.2rem;
+        }
+
+        .hero p {
+            font-size: 1rem;
+        }
+
+        .email-input {
+            flex-direction: column;
+        }
+
+        .waitlist-form {
+            padding: 0 20px;
+        }
+
+        .body{
+            background-image: url(./backgroundreal.jpg);
+            background-size:cover;
+            background-repeat: no-repeat;
+        }
+    }
+    
+    @media (max-width: 992px) {
+        .hero h2 {
+            font-size: 2.2rem;
+        }
+
+        .hero p {
+            font-size: 1rem;
+        }
+
+        .email-input {
+            flex-direction: column;
+        }
+
+        .waitlist-form {
+            padding: 0 20px;
+        }
+
+        .body{
+            background-image: url(./backgroundreal.jpg);
+            background-size:cover;
+            background-repeat: no-repeat;
+        }
+
+        @media (max-width: 429px) {
+        .hero h2 {
+            font-size: 2.2rem;
+        }
+
+        .hero p {
+            font-size: 1rem;
+        }
+
+        .email-input {
+            flex-direction: column;
+        }
+
+        .waitlist-form {
+            padding: 0 20px;
+        }
+
+        .body{
+            background-image: url(./backgroundreal.jpg);
+            background-size:cover;
+            background-repeat: no-repeat;
+        }
+
+
+
+    }
+
+}
     }
 </style>
 
 <body>
 
-    <body style="background-image: url(./backgroundreal.jpg);" div class="container">
+    <body style="background-image: url(./backgroundreal.jpg); background-size:cover; background-repeat: no-repeat;" div class="container">
         <header class="header">
             <div class="logo">
                 <img src="./logo.jpg" alt="logo" class="logo-image">
@@ -409,5 +492,6 @@
 
     </body>
 </body>
+
 
 </html>
