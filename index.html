@@ -1,413 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Join Our Waitlist</title>
+      <link rel="stylesheet" href="style.css" />
+      <link rel="shortcut icon" href="logo.jpg" type="image/x-icon" />
+   </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Join Our Waitlist</title>
-
-</head>
-
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    body {
-        background-image: no-repeat center center fixed;
-        color: #333;
-        line-height: 1.6;
-        background-size: cover;
-    }
-
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
-
-    .header {
-        padding: 30px 0;
-        text-align: center;
-    }
-
-    .logo {
-        font-size: 2.5rem;
-        font-weight: 700;
-        color: #fff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: row;
-        gap: 10px;
-
-    }
-
-    .logo-image {
-        width: 70px;
-        height: 70px;
-    }
-
-    .hero {
-        padding: 10px 0;
-        text-align: center;
-
-
-    }
-
-    /* TYPEWRITER EFFECT */
-    /* Google Fonts */
-    @import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
-
-    /* Cursor */
-    .cursor {
-        position: relative;
-        width: 24em;
-        margin: 0 auto;
-        border-right: 2px solid rgba(255, 255, 255, .75);
-        font-size: 30px;
-        text-align: center;
-        white-space: nowrap;
-        overflow: hidden;
-        transform: translateY(-10%);
-        color: #f0f0f0;
-        margin: 0 auto 40px;
-    }
-
-    /* Animation */
-    .typewriter-animation {
-        animation:
-            typewriter 5s steps(50) 1s 100 normal both,
-            blinkingCursor 500ms steps(50) infinite normal;
-    }
-
-    @keyframes typewriter {
-        from {
-            width: 0;
-        }
-
-        to {
-            width: 80%;
-        }
-    }
-
-    @keyframes blinkingCursor {
-        from {
-            border-right-color: rgba(255, 255, 255, .75);
-        }
-
-        to {
-            border-right-color: transparent;
-        }
-    }
-
-    .hero h1 {
-        font-size: 3rem;
-        margin-bottom: 20px;
-        color: #B2B0C4
-    }
-
-    .hero p {
-        font-size: 1.2rem;
-        color: #fff9f99e;
-        max-width: 700px;
-        margin: 0 auto 40px;
-    }
-
-    .waitlist-form {
-        max-width: 600px;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .email-input {
-        display: flex;
-        gap: 10px;
-    }
-
-    input[type="email"] {
-        flex: 1;
-        padding: 15px 20px;
-        border: 2px solid #e1e4e8;
-        border-radius: 8px;
-        font-size: 1rem;
-        outline: none;
-        transition: border-color 0.3s, background-color 0.3s;
-    }
-
-    input[type="email"]:disabled {
-        background-color: #f0f0f0;
-        cursor: not-allowed;
-    }
-
-    input[type="email"]:focus {
-        border-color: #1a73e8;
-    }
-
-    .submit-btn {
-        padding: 15px 30px;
-        background-color: #999;
-        color: white;
-        border: none;
-        border-radius: 8px;
-        font-size: 1rem;
-        font-weight: 600;
-        cursor: not-allowed;
-        transition: background-color 0.3s;
-    }
-
-    .submit-btn.active {
-        background: linear-gradient(90deg, rgba(99, 72, 234, 1) 0%, rgba(49, 146, 154, 1) 100%);
-        cursor: pointer;
-    }
-
-    .submit-btn.active:hover {
-        background-color: #0d62cb;
-    }
-
-    .twitter-btn {
-        padding: 15px 30px;
-        background-color: #000;
-        color: white;
-        border: none;
-        border-radius: 8px;
-        font-size: 1rem;
-        font-weight: 600;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        transition: background-color 0.3s;
-    }
-
-    .twitter-btn:hover {
-        background-color: #333;
-    }
-
-    .twitter-btn.followed {
-        background-color: #17bf63;
-    }
-
-    .step {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 8px;
-        margin-bottom: 5px;
-        color: #666;
-        font-size: 0.9rem;
-    }
-
-    .step-number {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 24px;
-        height: 24px;
-        border-radius: 50%;
-        background-color: #ddd;
-        color: #666;
-        font-weight: 600;
-    }
-
-    .step.active .step-number {
-        background-color: #1a73e8;
-        color: white;
-    }
-
-    .step.completed .step-number {
-        background-color: #17bf63;
-        color: white;
-    }
-
-    .footer {
-        text-align: center;
-        padding: 30px 0;
-        color: #777;
-        font-size: 0.9rem;
-    }
-
-    @media (max-width: 768px) {
-        .hero h1 {
-            font-size: 2.2rem;
-        }
-
-        .hero p {
-            font-size: 1rem;
-        }
-
-        .email-input {
-            flex-direction: column;
-        }
-
-        .waitlist-form {
-            padding: 0 20px;
-        }
-    }
-</style>
-
-<body>
-
-    <body style="background-image: url(./backgroundreal.jpg);" div class="container">
-        <header class="header">
+   <body style="background-image: url(./backgroundreal.jpg)">
+      <div class="container">
+         <header class="header">
             <div class="logo">
-                <img src="./logo.jpg" alt="logo" class="logo-image">
-                <h3 class="">Range</h3>
+               <img src="./logo.jpg" alt="logo" class="logo-image" />
+               <h3>Range</h3>
             </div>
-        </header>
+         </header>
 
-        <section class="hero">
-            <h2 class="cursor typewriter-animation">Something Exciting Is Coming</h2>
-            <p>Be the first to know when we launch. Join our exclusive waitlist and get early access to our product.</p>
+         <section class="hero">
+            <h2 class="cursor typewriter-animation">
+               Something Exciting Is Coming
+            </h2>
+            <p>
+               Be the first to know when we launch. Join our exclusive waitlist
+               and get early access to our product.
+            </p>
 
             <div class="waitlist-form">
-                <div class="step active" id="step1">
-                    <div class="step-number">1</div>
-                    <div>Follow us on X to unlock the waitlist</div>
-                </div>
+               <div class="step active" id="step1">
+                  <div class="step-number">1</div>
+                  <div>Follow us on X to unlock the waitlist</div>
+               </div>
 
-                <button id="twitterBtn" class="twitter-btn">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
-                            fill="white" />
-                    </svg>
-                    Follow us on X
-                </button>
+               <button id="twitterBtn" class="twitter-btn">
+                  <svg
+                     width="20"
+                     height="20"
+                     viewBox="0 0 24 24"
+                     fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                     <path
+                        d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                        fill="white" />
+                  </svg>
+                  Follow us on X
+               </button>
 
-                <div class="step" id="step2">
-                    <div class="step-number">2</div>
-                    <div>Enter your email to join the waitlist</div>
-                </div>
+               <div class="step" id="step2">
+                  <div class="step-number">2</div>
+                  <div>Enter your email to join the waitlist</div>
+               </div>
 
-                <div class="email-input">
-                    <input type="email" id="emailInput" placeholder="Follow X first to enable this field" disabled
-                        required>
-                    <button type="submit" id="submitBtn" class="submit-btn" disabled>Join Waitlist</button>
-                </div>
+               <div class="email-input">
+                  <form id="waitlist-form">
+                     <input
+                        type="email"
+                        id="email"
+                        placeholder="Follow us on X first"
+                        disabled
+                        required />
+                     <button
+                        type="submit"
+                        id="submitBtn"
+                        class="submit-btn"
+                        disabled>
+                        Join Waitlist
+                     </button>
+                  </form>
+               </div>
 
-                <div class="message" id="message">Please follow us on X first</div>
+               <div class="message" id="message">
+                  Please follow us on X first
+               </div>
             </div>
-        </section>
+         </section>
 
-        <footer class="footer">
+         <footer class="footer">
             <p>&copy; 2025 Product Launch. All rights reserved.</p>
-        </footer>
-        </div>
+         </footer>
+      </div>
 
-        <script>
-            const twitterBtn = document.getElementById('twitterBtn');
-            const submitBtn = document.getElementById('submitBtn');
-            const emailInput = document.getElementById('emailInput');
-            const message = document.getElementById('message');
-            const step1 = document.getElementById('step1');
-            const step2 = document.getElementById('step2');
+      <script>
+         const twitterBtn = document.getElementById("twitterBtn");
+         const submitBtn = document.getElementById("submitBtn");
+         const emailInput = document.getElementById("email");
+         const message = document.getElementById("message");
+         const step1 = document.getElementById("step1");
+         const step2 = document.getElementById("step2");
 
-            // Clear any existing localStorage data when the page loads
-            window.onload = function () {
-                localStorage.removeItem('twitterFollowed');
+         window.onload = function () {
+            localStorage.removeItem("twitterFollowed");
+         };
+
+         twitterBtn.addEventListener("click", function () {
+            window.open("https://x.com/rangewallet_io", "_blank");
+
+            setTimeout(() => {
+               twitterBtn.classList.add("followed");
+               twitterBtn.textContent = "Followed ✓";
+               emailInput.disabled = false;
+               emailInput.placeholder = "Enter your email address";
+               emailInput.focus();
+
+               step1.classList.remove("active");
+               step1.classList.add("completed");
+               step2.classList.add("active");
+
+               message.textContent =
+                  "Now enter your email to join the waitlist";
+               message.style.color = "#17bf63";
+            }, 1000);
+         });
+
+         emailInput.addEventListener("input", function () {
+            if (emailInput.value.trim() !== "" && emailInput.validity.valid) {
+               submitBtn.classList.add("active");
+               submitBtn.disabled = false;
+            } else {
+               submitBtn.classList.remove("active");
+               submitBtn.disabled = true;
             }
+         });
 
-            // Function to handle Twitter follow action
-            twitterBtn.addEventListener('click', function () {
-                // Open Twitter in a new window
-                window.open('https://x.com/rangewallet_io', '_blank');
+         document
+            .getElementById("waitlist-form")
+            .addEventListener("submit", async (event) => {
+               event.preventDefault();
+               const email = document.getElementById("email").value;
 
-                // Set a timeout to simulate the follow verification
-                setTimeout(() => {
-                    // Mark Twitter button as followed
-                    twitterBtn.classList.add('followed');
-                    twitterBtn.textContent = 'Followed ✓';
+               try {
+                  const response = await fetch(
+                     "http://localhost:5000/api/waitlist/add",
+                     {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ email }),
+                     }
+                  );
 
-                    // Enable email input
-                    emailInput.disabled = false;
-                    emailInput.placeholder = "Enter your email address";
-                    emailInput.focus();
+                  const result = await response.json();
 
-                    // Update steps
-                    step1.classList.remove('active');
-                    step1.classList.add('completed');
-                    step2.classList.add('active');
-
-                    // Update message
-                    message.textContent = "Now enter your email to join the waitlist";
-                    message.style.color = "#17bf63";
-                }, 1000);
+                  // ✅ FIX: Properly display the response message
+                  message.innerText = result.message || "Success!";
+                  message.style.color = response.ok ? "#4CAF50" : "#e91e63";
+               } catch (error) {
+                  console.error("Error:", error);
+                  message.innerText = "Server error. Please try again.";
+                  message.style.color = "#e91e63";
+               }
+               setTimeout(() => {
+                  // Reset form to initial state
+                  window.location.reload();
+               }, 5000);
             });
-
-            // Enable submit button when email is entered
-            emailInput.addEventListener('input', function () {
-                if (emailInput.value.trim() !== '' && emailInput.validity.valid) {
-                    submitBtn.classList.add('active');
-                    submitBtn.disabled = false;
-                } else {
-                    submitBtn.classList.remove('active');
-                    submitBtn.disabled = true;
-                }
-            });
-
-            // Submit form handler
-            submitBtn.addEventListener('click', function (e) {
-                if (emailInput.disabled) {
-                    e.preventDefault();
-                    message.textContent = "Please follow us on X before joining the waitlist.";
-                    message.style.color = "#e91e63";
-                    return false;
-                }
-
-                if (!emailInput.value || !emailInput.validity.valid) {
-                    e.preventDefault();
-                    message.textContent = "Please enter a valid email address.";
-                    message.style.color = "#e91e63";
-                    return false;
-                }
-
-                // Form submission would go here
-                message.textContent = "Thanks! You've been added to our waitlist.";
-                message.style.color = "#4CAF50";
-
-                // In a real implementation, you would submit the form to your backend
-                // form.submit();
-
-                // Optionally, reset the form after submission
-                setTimeout(() => {
-                    // Reset form to initial state
-                    window.location.reload();
-                }, 3000);
-            });
-        </script>
-
-        <script>
-
-            // Handle form submission and store data in Supabase
-
-            document.getElementById('waitlistForm').addEventListener('submit', async function (e) {
-                e.preventDefault();
-
-                const email = document.getElementById('emailField').value;
-
-                try {
-                    const { data, error } = await supabase
-                        .from('waitlist')
-                        .insert([{ email: email, signed_up_at: new Date() }]);
-
-                    if (error) throw error;
-
-                    alert('Thank you for joining our waitlist!');
-                    document.getElementById('waitlistForm').reset();
-                } catch (error) {
-                    alert('Error adding to waitlist: ' + error.message);
-                }
-            });
-        </script>
-
-    </body>
-</body>
-
+      </script>
+   </body>
 </html>
